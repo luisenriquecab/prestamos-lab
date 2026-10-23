@@ -1,32 +1,37 @@
-# React + TypeScript + Vite
+# Préstamos Lab — 0902-23-11039
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Aplicación web desarrollada en React con TypeScript y Vite para el control y gestión de préstamos de equipos de red (Switch, Cable de red, Access Point) en el laboratorio de cómputo.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Requisitos Previos
+- Node.js instalado en el sistema.
+- Gestor de paquetes npm.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Pasos para Instalar y Ejecutar el Proyecto
 
-## Expanding the Oxlint configuration
+### 1. Clonar el repositorio
+\`\`\`bash
+git clone https://github.com/luisenriquecab/prestamos-lab.git
+cd prestamos-lab
+\`\`\`
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+### 2. Instalar dependencias
+\`\`\`bash
+npm install
+\`\`\`
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+### 3. Levantar la API REST (json-server)
+En una terminal, ejecuta el servidor local en el puerto 3039 utilizando el archivo de base de datos:
+\`\`\`bash
+npx json-server --watch db.json --port 3039
+\`\`\`
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+### 4. Ejecutar el Frontend
+En otra terminal, arranca el servidor de desarrollo de Vite:
+\`\`\`bash
+npm run dev
+\`\`\`
+Abre tu navegador web en la dirección: `http://localhost:5173`.
